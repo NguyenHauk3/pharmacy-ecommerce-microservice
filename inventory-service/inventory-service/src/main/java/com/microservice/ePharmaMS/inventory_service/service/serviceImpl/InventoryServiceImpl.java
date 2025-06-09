@@ -80,7 +80,7 @@ public class InventoryServiceImpl implements InventoryService {
     @Override
     public boolean checkStockAvailability(Long productId, int quantity) {
         // Logic kiểm tra số lượng trong kho của sản phẩm
-        InventoryDTO inventory = getInventory(productId);  // Giả sử bạn đã có phương thức này
+        InventoryDTO inventory = getInventory(productId);
         return inventory != null && inventory.getQuantity() >= quantity;
     }
 
