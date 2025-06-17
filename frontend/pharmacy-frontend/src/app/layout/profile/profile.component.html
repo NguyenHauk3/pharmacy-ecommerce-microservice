@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="profile-container">
+  <div class="profile-card">
+    <div>
+      <div class="profile-header">
+        <img src="assets/avatar-default.png" alt="Avatar" class="profile-avatar" />
+        <h2>{{ profileInfo?.user?.name}}</h2>
+        <p>{{ profileInfo?.user?.email }}</p>
+      </div>
+      <div class="profile-body">
+        <ul>
+          <li><strong>Họ tên:</strong> {{ profileInfo?.user?.name }}</li>
+          <li><strong>Email:</strong> {{ profileInfo?.user.email }}</li>
+          <li><strong>Số điện thoại:</strong> {{ profileInfo?.user.phone }}</li>
+          <li><strong>Địa chỉ:</strong> {{ profileInfo?.user.address }}</li>
+          <li><strong>Giới tính:</strong> {{ profileInfo?.user.gender }}</li>
+        </ul>
+         <div class="button-group">
+    <button (click)="updateProfile(profileInfo?.user?.id)">Thay đổi thông tin</button>
+  </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+

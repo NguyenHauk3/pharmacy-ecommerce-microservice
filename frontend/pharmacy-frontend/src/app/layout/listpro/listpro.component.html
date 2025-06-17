@@ -1,0 +1,32 @@
+<div class="product-title text-center my-3  border rounded-pill py-2 px-4 mx-auto" style="max-width: 400px; background-color: #418dcc;">
+  <h3 class="mb-0 fw-bold" style="color: rgb(235, 226, 226);">Sản phẩm hiện có</h3>
+</div>
+
+<div *ngIf="showNotification" class="custom-toast">
+  ✅ Đã thêm vào giỏ hàng!
+</div>
+<div class="product-list ">
+  <div class="product-card" *ngFor="let product of displayedProducts">
+    <img [src]="'http://localhost:8088/images/' + product.images" alt="{{ product.images }}" height="140px"
+                        width="120px">
+    <div class="text-center mb-1 fw-bold fs-5" id="truncate" >{{ product.name }}</div>
+
+    
+    <div class="product-price">
+      <span *ngIf="product.originalPrice !== product.discountedPrice" class="original-price">{{ product.originalPrice | currency:'VND':'symbol':'1.0-0' }}</span>
+      <span class="discounted-price">{{ product.discountedPrice | currency:'VND':'symbol':'1.0-0' }}</span>
+    </div>
+     <div class="d-flex justify-content-center gap-3">
+      <button class="btn btn-primary btn-sm d-flex align-items-center gap-1" (click)="addToCart(product)">
+        <i class="fas fa-cart-plus"></i> Thêm
+      </button>
+      <button class="btn btn-outline-secondary btn-sm d-flex align-items-center gap-1" (click)="viewDetails(product.id)">
+        <i class="fas fa-info-circle"></i> Chi tiết
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="text-center mt-3 pb-3">
+  <button class="btn btn-info " *ngIf="displayedProducts.length < products.length" (click)="loadMore()">Xem thêm</button>
+</div>

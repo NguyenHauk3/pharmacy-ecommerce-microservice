@@ -1,0 +1,25 @@
+
+<div class="container" >
+    <button routerLink="/admin/addcate" class="btn btn-primary">Thêm danh mục</button>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên</th>
+                <th>Mô tả</th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cate of categories" >
+                <td>{{ cate.id }}</td>
+                <td>{{ cate.name }}</td>
+                <td>{{ cate.description }}</td>
+                <td class="action-buttons">
+                    <a [routerLink]="['/admin/editcate', cate.id]" class="btn btn-info"><i class="bi bi-pencil-fill"></i></a>
+                    <a (click)="onDelete(cate.id)" class="btn btn-info"><i class="bi bi-trash3-fill"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

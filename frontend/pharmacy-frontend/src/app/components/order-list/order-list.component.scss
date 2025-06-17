@@ -1,0 +1,27 @@
+.container {
+  max-width: 1200px;
+}
+
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th {
+  white-space: nowrap;
+  text-align: center;
+}
+
+td {
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+select.form-select-sm {
+  width: 140px;
+}
+
+.badge {
+  font-size: 0.85rem;
+  padding: 5px 10px;
+}

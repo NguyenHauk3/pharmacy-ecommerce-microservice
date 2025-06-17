@@ -1,0 +1,290 @@
+ .footer {
+  color: #212529;
+  background-color: #d7e2f5;
+  font-size: 14px;
+  position: relative;
+}
+
+.footer .footer-newsletter {
+  background-color: color-mix(in srgb, #0a4db8, transparent 95%);
+  padding: 60px 0;
+}
+
+.footer .footer-newsletter h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.footer .footer-newsletter p {
+  font-size: 16px;
+  margin-bottom: 30px;
+  color: color-mix(in srgb, #212529, transparent 20%);
+}
+
+.footer .footer-newsletter .newsletter-form {
+  max-width: 550px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.footer .footer-newsletter .newsletter-form input[type=email] {
+  height: 54px;
+  border-radius: 50px;
+  padding: 10px 25px;
+  width: 100%;
+  color: #212529;
+  background-color: #ffffff;
+  border: 1px solid color-mix(in srgb, #212529, transparent 80%);
+  font-size: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.footer .footer-newsletter .newsletter-form input[type=email]:focus {
+  outline: none;
+  border-color: #0a4db8;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.footer .footer-newsletter .newsletter-form input[type=email]::placeholder {
+  color: color-mix(in srgb, #212529, transparent 70%);
+}
+
+.footer .footer-newsletter .newsletter-form button {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  bottom: 5px;
+  border: 0;
+  background-color: #0a4db8;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  border-radius: 50px;
+  padding: 0 30px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.footer .footer-newsletter .newsletter-form button:hover {
+  background-color: color-mix(in srgb, #0a4db8, transparent 20%);
+}
+
+.footer .footer-main {
+  padding: 70px 0 40px;
+}
+
+.footer .footer-main .footer-widget {
+  margin-bottom: 30px;
+}
+
+.footer .footer-main .footer-widget .logo {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.footer .footer-main .footer-widget .logo span {
+  color: #2d465e;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-family: var(--heading-font);
+}
+
+.footer .footer-main .footer-widget p {
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.footer .footer-main .footer-widget h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.footer .footer-main .footer-widget h5 {
+  color: color-mix(in srgb, #212529, transparent 20%);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.footer .footer-main .footer-contact .contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  justify-content: flex-start;
+}
+
+.footer .footer-main .footer-contact .contact-item i {
+  color: #0a4db8;
+  font-size: 18px;
+  margin-right: 12px;
+  margin-top: 3px;
+}
+
+.footer .footer-main .footer-contact .contact-item span {
+  color: color-mix(in srgb, #212529, transparent 30%);
+  line-height: 1.5;
+}
+
+.footer .footer-main .footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .footer-main .footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer .footer-main .footer-links a {
+  color: color-mix(in srgb, #212529, transparent 30%);
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 0;
+  display: inline-block;
+}
+
+.footer .footer-main .footer-links a:hover {
+  color: #0a4db8;
+  padding-left: 5px;
+}
+
+.footer .footer-main .footer-links a:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: #0a4db8;
+  transition: all 0.3s ease;
+}
+
+.footer .footer-main .footer-links a:hover:before {
+  width: 100%;
+}
+
+.footer .footer-main .app-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.footer .footer-main .app-buttons .app-btn {
+  display: flex;
+  align-items: center;
+  background-color: color-mix(in srgb, #212529, transparent 90%);
+  color: #212529;
+  padding: 8px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.footer .footer-main .app-buttons .app-btn i {
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+.footer .footer-main .app-buttons .app-btn span {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.footer .footer-main .app-buttons .app-btn:hover {
+  background-color: #0a4db8;
+  transform: translateY(-3px);
+  color: #ffffff;
+}
+
+.footer .footer-main .social-icons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer .footer-main .social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: color-mix(in srgb, #212529, transparent 90%);
+  color: #212529;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.footer .footer-main .social-icons a:hover {
+  background-color: #0a4db8;
+  transform: rotate(360deg);
+  color: #ffffff;
+}
+
+.footer .footer-bottom {
+  background-color: color-mix(in srgb, #0a4db8, transparent 95%);
+  padding: 25px 0;
+}
+
+.footer .footer-bottom .payment-methods {
+  display: flex;
+  align-items: center;
+}
+
+.footer .footer-bottom .payment-methods span {
+  margin-right: 15px;
+  font-weight: 500;
+  color: color-mix(in srgb, #212529, transparent 30%);
+}
+
+.footer .footer-bottom .payment-methods .payment-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.footer .footer-bottom .payment-methods .payment-icons i {
+  font-size: 22px;
+  color: color-mix(in srgb, #212529, transparent 30%);
+  transition: color 0.3s ease;
+}
+
+.footer .footer-bottom .payment-methods .payment-icons i:hover {
+  color: #0a4db8;
+}
+
+.footer .footer-bottom .copyright {
+  padding-top: 10px;
+}
+
+.footer .footer-bottom .copyright p {
+  margin-bottom: 0;
+}
+
+.footer .footer-bottom .copyright p strong {
+  color: color-mix(in srgb, #212529, transparent 10%);
+}
+
+.footer .footer-bottom .credits {
+  text-align: center;
+  padding-top: 5px;
+}
+
+.footer .footer-bottom .legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px 0 15px 0;
+}
+
+.footer .footer-bottom .legal-links a {
+  color: color-mix(in srgb, #212529, transparent 40%);
+  font-size: 13px;
+  transition: color 0.3s ease;
+}
+
+.footer .footer-bottom .legal-links a:hover {
+  color: #0a4db8;
+}

@@ -1,0 +1,32 @@
+
+<form action="" method="POST" [formGroup]="categoryFormEdit" (ngSubmit)="onUpdate()" class="mx-auto">
+    <div class="row justify-content-center">
+      
+    <div class="col-6 pt-3">
+      <div class="form-group">
+        <label for="name">Tên</label>
+        <input type="text" class="form-control" id="name" formControlName="name"
+          placeholder="">
+      </div>
+      
+      <div class="form-group">
+        <label for="description">Mô tả</label>
+        <input type="text" class="form-control" id="description" formControlName="description"
+          placeholder="">
+      </div>
+      <div class="my-2">
+        <button type="submit" class="btn btn-primary">Lưu</button>
+        <button type="button" class="btn btn-primary mx-2" (click)="onHome()">Trở về</button>
+      </div>
+    </div>
+    <div class="col-3">
+      <div *ngIf="updateSuccess" class="alert alert-success" role="alert">
+        Cập nhật thành công!
+      </div>
+    </div>
+  </div>
+  </form>
+
+  
+
+

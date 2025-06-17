@@ -1,0 +1,25 @@
+<div class="container mt-3">
+  <h3>Dự báo tồn kho</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID SP</th>
+        <th>Tên sản phẩm</th>
+        <th>SL hiện tại</th>
+        <th>TB xuất/ngày</th>
+        <th>Còn đủ (ngày)</th>
+        <th>SL cần nhập thêm</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let forecast of forecasts">
+        <td>{{ forecast.productId }}</td>
+        <td>{{ forecast.productName }}</td>
+        <td>{{ forecast.currentQuantity }}</td>
+        <td>{{ forecast.avgExportPerDay | number:'1.2-2' }}</td>
+        <td>{{ forecast.daysLeft }}</td>
+        <td>{{ forecast.quantityToRestock }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,146 @@
+<app-header></app-header>
+<div *ngIf="showNotification" class="custom-toast">
+  ✅ Đã thêm vào giỏ hàng!
+</div>
+<div class="page-title light-background py-3">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Thông tin sản phẩm</h1>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Product Details Section -->
+    <section id="product-details" class="product-details section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row">
+          <!-- Product Images -->
+          <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right" data-aos-delay="200">
+            <div class="product-images">
+              <div class="main-image-container mb-3">
+                <div class="image-zoom-container">
+                  <img [src]="'http://localhost:8088/images/' + product?.images" alt="{{ product?.images }}" class="img-fluid main-image drift-zoom" id="main-product-image">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Info -->
+          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+            <div class="product-info">
+              <h1 class="product-title" id="product-tit">{{ product?.name }}</h1>
+
+              <div class="product-price-container mb-4">
+                <span class="current-price">{{discountedPrice | currency:'VND' }}</span>
+                <span class="original-price">{{ originalPrice | currency:'VND' }}</span>
+                <span class="discount-badge">
+                    {{product?.percent}}%
+                </span>
+              </div>
+
+              <div class="product-info-table">
+  <div class="row">
+    <div class="col-label">Đơn vị tính:</div>
+    <div class="col-value">{{product?.unit}}</div>
+  </div>
+  <div class="row">
+    <div class="col-label">Danh mục:</div>
+    <div class="col-value">{{product?.categoryName}}</div>
+  </div>
+  <div class="row">
+    <div class="col-label">Ngày sản xuất:</div>
+    <div class="col-value">{{product?.date}}</div>
+  </div>
+  <div class="row">
+    <div class="col-label">Hạn sử dụng:</div>
+    <div class="col-value">{{product?.expiryDate}}</div>
+  </div>
+  <div class="row">
+    <div class="col-label">Nhà sản xuất:</div>
+    <div class="col-value">{{product?.tenNhaSX}}</div>
+  </div>
+  <div class="row">
+    <div class="col-label">Nước sản xuất:</div>
+    <div class="col-value">{{product?.noiSX}}</div>
+  </div>
+  <div class="row">
+    <div class="col-label">Thành phần:</div>
+    <div class="col-value">{{product?.thanhPhan}}</div>
+  </div>
+</div>
+              <!-- Quantity Selector -->
+              <div class="product-quantity mb-4">
+                <h6 class="option-title">Số lượng:</h6>
+                <div class="quantity-selector">
+                  <button class="quantity-btn decrease" (click)="decreaseQuantity()">
+      <i class="bi bi-dash"></i>
+    </button>
+
+    <input
+      type="number"
+      class="quantity-input"
+      [(ngModel)]="quantity"
+      [min]="1"
+      [max]="100"
+    />
+
+    <button class="quantity-btn increase" (click)="increaseQuantity()">
+      <i class="bi bi-plus"></i>
+    </button>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="product-actions">
+                <button class="btn btn-primary add-to-cart-btn" (click)="addToCart(product)">
+                  <i class="bi bi-cart-plus"></i> Thêm vào giỏ hàng
+                </button>
+              </div>
+
+              <!-- Additional Info -->
+              <div class="additional-info mt-4">
+                <div class="info-item">
+                  <i class="bi bi-truck"></i>
+                  <span>Miễn phí ship cho đơn hàng trên 300.000 VND</span>
+                </div>
+                <div class="info-item">
+                  <i class="bi bi-arrow-repeat"></i>
+                  <span>30 ngày đổi trả</span>
+                </div>
+                <div class="info-item">
+                  <i class="bi bi-shield-check"></i>
+                  <span>1 năm bảo hành</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-5" data-aos="fade-up">
+          <div class="col-12">
+            <div class="product-details-tabs">
+              <ul class="nav nav-tabs" id="productTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">Mô tả</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="specifications-tab" data-bs-toggle="tab" data-bs-target="#specifications" type="button" role="tab" aria-controls="specifications" aria-selected="false">Hướng dẫn sử dụng</button>
+                </li>
+              </ul>
+              <div class="tab-content" id="productTabsContent">
+                <!-- Description Tab -->
+                <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                  <div class="product-description">
+                    <h3>{{product?.description}}</h3>
+                  </div>
+                </div>
+
+                <!-- Specifications Tab -->
+                <div class="tab-pane fade" id="specifications" role="tabpanel" aria-labelledby="specifications-tab">
+                  <div class="product-specifications">
+                    <h3>{{product?.huongDanSuDung}}</h3>
+                  </div>
+                </div>
+              </div>
+
+            <app-footer></app-footer>

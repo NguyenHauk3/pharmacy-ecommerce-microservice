@@ -1,0 +1,75 @@
+// .navbar-nav .nav-link {
+//     color: white;
+//     padding: 10px 15px;
+//     text-decoration: none;
+//     border-radius: 5px;
+//     margin-right: 10px;
+// }
+
+// .navbar-brand {
+//     color: white;
+// }
+
+// /* Tạo hiệu ứng hover */
+// .navbar-nav .nav-link:hover {
+//     background-color: #6c757d; /* Màu xám khi hover */
+//     color: white;
+//     border-radius: 10px; /* Bo tròn khi hover */
+// }
+
+// ul {
+//     list-style-type: none;
+//     margin: 0;
+//     padding: 0;
+//     overflow: hidden;
+    
+// }
+
+// li {
+//     float: left;
+//     margin: 0;
+// }
+
+// li a {
+//     display: block;
+//     color: rgb(0, 0, 0);
+//     text-align: center;
+//     padding: 16px;
+//     text-decoration: none;
+// }
+
+// li a:hover {
+//     background-color: #d17d7d;
+// }
+/* Làm dropdown rõ ràng và nổi bật hơn */
+.custom-dropdown {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+/* Hover cho dropdown */
+.dropdown-menu .dropdown-item:hover {
+  background-color: #343a40;
+  color: #ffffff;
+}
+
+/* Navbar brand và links */
+.navbar .nav-link,
+.navbar .navbar-brand {
+  color: white !important;
+  transition: color 0.3s;
+}
+
+.navbar .nav-link:hover {
+  color: #ffc107 !important;
+}
+
+/* Hiệu ứng cho nút thêm sản phẩm */
+.btn-danger {
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}

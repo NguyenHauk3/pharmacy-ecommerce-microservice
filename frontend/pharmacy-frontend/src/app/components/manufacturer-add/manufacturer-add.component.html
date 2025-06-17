@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Thêm nhà sản xuất</h2>
+  <form [formGroup]="manufacturerForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="tenNhaSX">Tên nhà sản xuất</label>
+      <input type="text" id="tenNhaSX" class="form-control" formControlName="tenNhaSX" />
+      <div *ngIf="manufacturerForm.get('tenNhaSX')?.invalid && manufacturerForm.get('tenNhaSX')?.touched" class="text-danger">
+        Tên nhà sản xuất là bắt buộc
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="noiSX">Nơi sản xuất</label>
+      <textarea id="noiSX" class="form-control" formControlName="noiSX"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Thêm</button>
+    <button type="button" class="btn btn-secondary ms-2" (click)="onCancel()">Hủy</button>
+  </form>
+
+  <div *ngIf="addSuccess" class="alert alert-success mt-3">
+    ✅ Thêm nhà sản xuất thành công!
+  </div>
+  <div *ngIf="errorMessage" class="alert alert-danger text-center">
+  {{ errorMessage }}
+</div>
+</div>

@@ -1,0 +1,32 @@
+<div class="container">
+    <p *ngIf="errorMessage" class="error-message">{{errorMessage}}</p>
+    <h2>Cập nhật tài khoản</h2>
+    <form (ngSubmit)="updateUser()">
+        <div class="form-group">
+                <label for="">Tên: </label>
+                <input type="text" name="name" [(ngModel)]="userData.name">
+        </div>
+        <div class="form-group">
+                <label for="">Email: </label>
+                <input type="text" name="email" [(ngModel)]="userData.email">
+        </div>
+         <div class="form-group">
+                <label for="">Địa chỉ: </label>
+                <input type="text" name="city" [(ngModel)]="userData.address">
+        </div>
+         <div class="form-group">
+                <label for="">SDT: </label>
+                <input type="text" name="phone" [(ngModel)]="userData.phone">
+        </div>
+         <div class="form-group">
+                <label for="">Giới tính: </label>
+                <input type="text" name="gender" [(ngModel)]="userData.gender">
+        </div>
+        <div class="form-group">
+                <label for="">Quyền: </label>
+                <input type="text" name="role" [(ngModel)]="userData.role">
+        </div>
+       
+        <button type="submit">Cập nhật</button>
+    </form>
+</div>

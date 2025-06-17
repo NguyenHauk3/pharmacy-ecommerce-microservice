@@ -1,0 +1,34 @@
+<div class="container" *ngIf="isAdmin">
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <button routerLink="/register" class="btn btn-primary">Thêm User</button>
+    <button (click)="export()"  class="btn btn-primary m-2" >Xuất Excel</button>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên</th>
+                <th>Email</th>
+                <th>Địa chỉ</th>
+                <th>SDT</th>
+                <th>Giới tính</th>
+                <th>Quyền</th>
+                <th>Chức Năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users" key="user.id">
+               <td>{{user.id}}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.address }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.gender }}</td>
+                <td>{{ user.role }}</td>
+                <td class="action-buttons">
+                    <a (click)="navigateToUpdate(user.id)" class="btn btn-info"><i class="bi bi-pencil-fill"></i></a>
+                    <a (click)="deleteUser(user.id)" class="btn btn-info"><i class="bi bi-trash3-fill"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

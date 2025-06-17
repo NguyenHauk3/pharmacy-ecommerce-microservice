@@ -1,0 +1,84 @@
+<div class="container mt-4">
+  <h3>Quản lý tồn kho</h3>
+
+  <div class="row my-3">
+    <div class="col-md-4">
+      <input [(ngModel)]="productId" class="form-control" placeholder="Nhập ID sản phẩm">
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-primary" (click)="getInventory()">Xem tồn kho</button>
+    </div>
+    <div class="col-md-2">
+      <input [(ngModel)]="quantity" type="number" class="form-control" placeholder="Số lượng">
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-success" (click)="import()">Nhập hàng</button>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-danger" (click)="export()">Xuất hàng</button>
+    </div>
+  </div>
+
+  <div *ngIf="currentInventory">
+    <strong>Hiện có:</strong> {{ currentInventory.quantity }}
+  </div>
+
+  <hr>
+
+  <h5>📦 Hàng sắp hết</h5>
+  <ul>
+    <li *ngFor="let item of lowStock">
+      ID: {{ item.productId }} - SL: {{ item.quantity }}
+    </li>
+  </ul>
+
+  <hr>
+
+  <h5>📈 Dự báo tồn kho</h5>
+  <table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Tên SP</th>
+        <th>SL hiện tại</th>
+        <th>TB xuất/ngày</th>
+        <th>Còn đủ trong</th>
+        <th>SL cần nhập thêm</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let forecast of forecastList">
+        <td>{{ forecast.productId }}</td>
+        <td>{{ forecast.productName }}</td>
+        <td>{{ forecast.currentQuantity }}</td>
+        <td>{{ forecast.avgExportPerDay | number:'1.2-2' }}</td>
+        <td>{{ forecast.daysLeft }} ngày</td>
+        <td>{{ forecast.quantityToRestock }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr>
+
+  <h5>🧾 Lịch sử xuất/nhập</h5>
+  <table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Sản phẩm</th>
+        <th>Thay đổi</th>
+        <th>Hành động</th>
+        <th>Thời gian</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let log of logs">
+        <td>{{ log.id }}</td>
+        <td>{{ log.productId }}</td>
+        <td>{{ log.quantityChanged }}</td>
+        <td>{{ log.action }}</td>
+        <td>{{ log.timestamp | date:'short' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

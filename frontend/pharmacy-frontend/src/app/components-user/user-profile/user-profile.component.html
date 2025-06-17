@@ -1,0 +1,11 @@
+<div class="container">
+
+    <p *ngIf="errorMessage" class="error-message">{{errorMessage}}</p>
+    <h2>Thông tin</h2>
+    <p>Tên: {{profileInfo?.user?.name}}</p>
+    <p>Email: {{profileInfo?.user?.email}}</p>
+    <p>Giới tính: {{profileInfo?.user?.gender}}</p>
+    <p>Địa chỉ: {{profileInfo?.user?.address}}</p>
+    <p>SĐT: {{profileInfo?.user?.phone}}</p>
+    <button (click)="updateProfile(profileInfo?.user?.id)">Cập nhật thông tin</button>
+</div>

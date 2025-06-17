@@ -1,0 +1,41 @@
+<app-header></app-header>
+<div class="container py-3 my-4"  style="background-color: #d5d6d8;">
+  <h2 class="mb-4">Giỏ hàng</h2>
+  <div *ngIf="cartItems.length > 0; else emptyCart">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Hình ảnh</th>
+          <th>Tên sản phẩm</th>
+          <th>Giá</th>
+          <th>Số lượng</th>
+          <th>Tổng</th>
+          <th>Hành động</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartItems; let i = index">
+          <td><img [src]="'http://localhost:8088/images/' + item.images" width="80" /></td>
+          <td id="truncate">{{ item.name }}</td>
+          <td>{{ item.price | currency:'VND' }}</td>
+          <td>
+            <input type="number" [(ngModel)]="item.quantity" (change)="updateQuantity(i, item.quantity)" min="1" class="form-control" style="width: 70px;" />
+          </td>
+          <td>{{ item.price * item.quantity | currency:'VND' }}</td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="removeItem(i)">Xóa</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-end">
+      <h4>Tổng tiền: {{ totalPrice | currency:'VND' }}</h4>
+      <button class="btn btn-success" (click)="checkout()">Thanh toán</button>
+    </div>
+  </div>
+
+  <ng-template #emptyCart>
+    <div class="alert alert-info">Giỏ hàng của bạn đang trống.</div>
+  </ng-template>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,47 @@
+<div *ngIf="showNotification" class="custom-toast">
+  ✅ Đã thêm vào giỏ hàng!
+</div>
+<div class="category-section"  id="category">
+  <div class="category-divider"></div>
+  <div class="category-header">
+    <h2>Danh mục</h2>
+     <div class="arrow-buttons">
+    <button (click)="scrollLeft()"><i class="fas fa-chevron-left"></i></button>
+    <button (click)="scrollRight()"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  </div>
+
+  <div #scrollContainer class="category-list" id="categoryList">
+  <div class="category-card" *ngFor="let category of categories" (click)="loadProductsByCategory(category.id)">
+    
+    <div class="category-name">{{ category.name }}</div>
+  </div>
+</div>
+</div>
+
+<div class="mt-4" *ngIf="selectedCategoryName">
+  <h4 class="text-center fw-bold mb-3">Sản phẩm thuộc danh mục "{{ selectedCategoryName }}"</h4>
+
+
+  <div class="product-list C">
+  <div class="product-card" *ngFor="let product of displayedProducts">
+    <img [src]="'http://localhost:8088/images/' + product.images" alt="{{ product.images }}" height="140px"
+                        width="120px">
+    <div class="text-center mb-1 fw-bold fs-5" id="truncate">{{ product.name }}</div>
+
+     <div class="d-flex justify-content-center gap-3">
+      <button class="btn btn-primary btn-sm d-flex align-items-center gap-1" (click)="addToCart(product)">
+        <i class="fas fa-cart-plus"></i> Thêm
+      </button>
+      <button class="btn btn-outline-secondary btn-sm d-flex align-items-center gap-1" (click)="viewDetails(product.id)">
+        <i class="fas fa-info-circle"></i> Chi tiết
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="text-center mt-3" *ngIf="displayedProducts.length < allCategoryProducts.length">
+    <button class="btn btn-info" (click)="loadMore()">Xem thêm</button>
+  </div>
+</div>
+

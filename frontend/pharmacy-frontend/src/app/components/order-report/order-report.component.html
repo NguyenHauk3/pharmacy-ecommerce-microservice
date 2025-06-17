@@ -1,0 +1,76 @@
+<!-- 
+        <div class="container mt-4">
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="card text-white bg-primary mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Tổng số đơn</h5>
+          <p class="card-text fs-3">{{ totalOrders }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card text-white bg-success mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Tổng doanh thu</h5>
+          <p class="card-text fs-3">{{ totalRevenue | currency:'VND':'symbol':'1.0' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-card card">
+  <div class="card-body">
+    <h5 class="card-title">Biểu đồ thống kê 7 ngày</h5>
+    <canvas baseChart
+      [data]="barChartData"
+      [type]="'bar'">
+    </canvas>
+  </div>
+</div> -->
+
+<div class="container mt-4">
+  <!-- Nút chọn khoảng thời gian -->
+  <div class="d-flex justify-content-center mb-4">
+    <button class="btn btn-outline-primary me-2"
+            [class.active]="selectedRange === 7"
+            (click)="loadReportData(7)">Thống kê 7 ngày</button>
+    <button class="btn btn-outline-success"
+            [class.active]="selectedRange === 30"
+            (click)="loadReportData(30)">Thống kê 30 ngày</button>
+  </div>
+
+  <!-- Tổng đơn & doanh thu -->
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="card text-white bg-primary mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Tổng số đơn</h5>
+          <p class="card-text fs-3">{{ totalOrders }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card text-white bg-success mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Tổng doanh thu</h5>
+          <p class="card-text fs-3">{{ totalRevenue | currency:'VND':'symbol':'1.0' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Biểu đồ -->
+  <div class="chart-card card">
+    <div class="card-body">
+      <h5 class="card-title">
+        Biểu đồ thống kê {{ selectedRange }} ngày
+      </h5>
+      <canvas baseChart
+              [data]="barChartData"
+              [options]="barChartOptions"
+              [type]="'bar'">
+      </canvas>
+    </div>
+  </div>
+</div>

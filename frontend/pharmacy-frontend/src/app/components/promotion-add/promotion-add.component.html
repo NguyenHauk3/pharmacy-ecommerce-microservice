@@ -1,0 +1,39 @@
+<div class="container">
+  <h2>Thêm khuyến mãi</h2>
+  <form [formGroup]="promotionForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="name">Tên khuyến mãi</label>
+      <input type="text" id="name" class="form-control" formControlName="name" />
+      <div *ngIf="promotionForm.get('name')?.invalid && promotionForm.get('name')?.touched" class="text-danger">
+        Tên khuyến mãi là bắt buộc
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="date" class="form-label">Thời gian</label>
+      <input type="datetime-local" id="date" formControlName="date" class="form-control" required />
+      <div *ngIf="promotionForm.get('date')?.invalid && promotionForm.get('date')?.touched" class="text-danger">
+        Thời gian khuyến mãi bắt buộc
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="percent" class="form-label">Phần trăm giảm (%)</label>
+      <input type="number" id="percent" formControlName="percent" class="form-control" required />
+      <div *ngIf="promotionForm.get('percent')?.invalid && promotionForm.get('percent')?.touched" class="text-danger">
+        Phần trăm khuyến mãi bắt buộc
+      </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Thêm</button>
+    <button type="button" class="btn btn-secondary ms-2" (click)="onCancel()">Hủy</button>
+  </form>
+
+  <div *ngIf="addSuccess" class="alert alert-success mt-3">
+    ✅ Thêm khuyến mãi thành công!
+  </div>
+  <div *ngIf="errorMessage" class="alert alert-danger text-center">
+  {{ errorMessage }}
+</div>
+</div>

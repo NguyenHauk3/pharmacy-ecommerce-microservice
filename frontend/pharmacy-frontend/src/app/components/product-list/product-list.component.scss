@@ -1,0 +1,9 @@
+.action-buttons a {
+    margin-right: 10px; /* Khoảng cách giữa các nút */
+  }
+  .truncate {
+  max-width: 150px;      
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

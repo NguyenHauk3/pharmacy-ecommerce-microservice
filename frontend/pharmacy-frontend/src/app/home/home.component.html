@@ -1,0 +1,59 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <a class="navbar-brand mx-3" href="">Pharmacy</a>
+
+  <div class="navbar-nav">
+    <ul>
+      <li *ngIf="isAuthenticated"><a routerLink="/profile" class="nav-link">Thông tin</a></li>
+      <li *ngIf="isAdmin"><a routerLink="/products" class="nav-link">Danh sách sản phẩm</a></li>
+      <li *ngIf="isAdmin"><a routerLink="/userlist" class="nav-link">Quản lý người dùng</a></li>
+      <li *ngIf="isAdmin"><a routerLink="/category" class="nav-link">Quản lý danh mục</a></li>
+      <li *ngIf="isAdmin"><a routerLink="/promotions" class="nav-link">Quản lý khuyến mãi</a></li>
+      <li *ngIf="isAdmin"><a routerLink="/manufacturer" class="nav-link">Quản lý nhà sản xuất</a></li>
+      <li *ngIf="!isAuthenticated"><a routerLink="/login" class="nav-link">Đăng nhập</a></li>
+      <li *ngIf="!isAuthenticated"><a routerLink="/register" class="nav-link">Đăng kí</a></li>
+      <li *ngIf="isAuthenticated"><a routerLink="" (click)="logout()" class="nav-link">Đăng xuất</a></li>
+    </ul>
+    <button *ngIf="isAdmin" type="button" class="btn btn-danger mx-4" data-toggle="modal" data-target="#addProductModal">Thêm sản phẩm</button>
+  </div>
+</nav> -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+  <a class="navbar-brand" routerLink="/admin/dashboard">Pharmacy</a>
+
+  <div class="collapse navbar-collapse justify-content-between">
+    <!-- Bên trái: các mục chung -->
+    <ul class="navbar-nav">
+      <!-- <li class="nav-item" *ngIf="isAuthenticated">
+        <a routerLink="/profile" class="nav-link">Thông tin</a>
+      </li> -->
+      <li class="nav-item" *ngIf="!isAuthenticated">
+        <a routerLink="/login" class="nav-link">Đăng nhập</a>
+      </li>
+      <li class="nav-item" *ngIf="!isAuthenticated">
+        <a routerLink="/register" class="nav-link">Đăng ký</a>
+      </li>
+      <li class="nav-item" *ngIf="isAuthenticated">
+        <a href="#" (click)="logout()" class="nav-link">Đăng xuất</a>
+      </li>
+    </ul>
+
+    <!-- Bên phải: dropdown quản lý và thêm sản phẩm -->
+    <div class="d-flex align-items-center">
+      <div class="dropdown me-3" *ngIf="isAdmin">
+        <button class="btn btn-outline-light dropdown-toggle custom-dropdown" type="button" data-bs-toggle="dropdown">
+          Chức năng quản lý
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li><a class="dropdown-item" routerLink="/products">Danh sách sản phẩm</a></li>
+          <li><a class="dropdown-item" routerLink="/userlist">Quản lý người dùng</a></li>
+          <li><a class="dropdown-item" routerLink="/category">Quản lý danh mục</a></li>
+          <li><a class="dropdown-item" routerLink="/promotions">Quản lý khuyến mãi</a></li>
+          <li><a class="dropdown-item" routerLink="/manufacturer">Quản lý nhà sản xuất</a></li>
+           <li><a class="dropdown-item" routerLink="/inventories">Quản lý kho</a></li>
+        </ul>
+      </div>
+
+      <button *ngIf="isAdmin" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#addProductModal">
+        Thêm sản phẩm
+      </button>
+    </div>
+  </div>

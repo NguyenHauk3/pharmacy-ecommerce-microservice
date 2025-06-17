@@ -1,0 +1,24 @@
+<div class="container" >
+    <button routerLink="/admin/addmanu" class="btn btn-primary">Thêm nhà sản xuất</button>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên nhà sản xuất</th>
+                <th>nơi sản xuất</th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let manu of manufacturers" >
+                <td>{{ manu.id }}</td>
+                <td>{{ manu.tenNhaSX }}</td>
+                <td>{{ manu.noiSX }}</td>
+                <td class="action-buttons">
+                    <a [routerLink]="['/admin/editmanu', manu.id]" class="btn btn-info"><i class="bi bi-pencil-fill"></i></a>
+                    <a (click)="onDelete(manu.id)" class="btn btn-info"><i class="bi bi-trash3-fill"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,44 @@
+
+<div class="login-wrapper">
+ 
+
+  <div class="container">
+    <h2>Đăng nhập</h2>
+
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+
+    <form (submit)="handleSubmit()">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="text"
+          [(ngModel)]="email"
+          name="email"
+          id="email"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Mật khẩu:</label>
+        <input
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          id="password"
+          required
+        />
+      </div>
+
+      <button type="submit">Đăng nhập</button>
+    </form>
+
+    <p class="signup-link">
+      Bạn muốn tạo tài khoản?
+      <a routerLink="/register">Đăng ký</a>
+    </p>
+  </div>
+   <div class="image-section">
+    <img src="assets/loginn.png" alt="Login Image" />
+  </div>
+</div>

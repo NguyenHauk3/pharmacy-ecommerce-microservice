@@ -1,0 +1,77 @@
+<div *ngIf="showNotification" class="custom-toast">
+  ✅ Cập nhật thành công
+</div>
+<form action="" method="POST" [formGroup]="productFormEdit" (ngSubmit)="onUpdate()" class="mx-auto">
+    <div class="row justify-content-center">
+      <div class="col-3 pt-3  ">
+        <img [src]="imgUrl" class="img-fluid" width="250px" height="250px">
+        <div class="form-group mt-3">
+          <input type="file" (change)="onFileSelected($event)">
+        </div>
+      </div>
+    <div class="col-6 pt-3">
+      <div class="form-group">
+        <label for="productName">Tên</label>
+        <input type="text" class="form-control" id="productName" formControlName="name"
+          placeholder="">
+      </div>
+      
+      <div class="form-group">
+        <label for="price">Giá</label>
+        <input type="text" class="form-control" id="price" formControlName="price" placeholder="">
+      </div>
+      <div class="form-group">
+        <label for="date">Ngày sản xuất</label>
+        <input type="date" class="form-control" id="date" formControlName="date">
+      </div>
+      <div class="form-group">
+        <label for="expiryDate">Ngày hết hạn</label>
+        <input type="date" class="form-control" id="expiryDate" formControlName="expiryDate">
+      </div>
+       <div class="form-group">
+        <label for="unit">Đơn vị</label>
+        <input type="text" class="form-control" id="unit" formControlName="unit">
+      </div>
+       <div class="form-group">
+        <label for="thanhPhan">Thành phần</label>
+        <input type="text" class="form-control" id="thanhPhan" formControlName="thanhPhan">
+      </div>
+       <div class="form-group">
+        <label for="huongDanSuDung">Hướng dẫn sử dụng</label>
+        <input type="text" class="form-control" id="huongDanSuDung" formControlName="huongDanSuDung">
+      </div>
+      <div class="form-group">
+        <label for="category">Danh mục</label>
+        <select class="form-control" id="category" formControlName="category">
+          <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+        </select>
+        
+      </div>
+      <div class="form-group">
+        <label for="promotion">Khuyến mãi</label>
+        <select class="form-control" id="promotion" formControlName="promotion">
+          <option *ngFor="let promotion of promotions" [value]="promotion.id">{{promotion.name}} ({{promotion.percent}}%)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="manufacturer">Nhà sản xuất</label>
+        <select class="form-control" id="manufacturer" formControlName="manufacturer">
+          <option *ngFor="let manufacturer of manufacturers" [value]="manufacturer.id">{{ manufacturer.tenNhaSX }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="description">Mô tả</label>
+        <input type="text" class="form-control" id="description" formControlName="description"
+          placeholder="">
+      </div>
+      <div class="my-2">
+        <button type="submit" class="btn btn-primary">lưu</button>
+        <button type="button" class="btn btn-primary mx-2" (click)="onHome()">Trở về</button>
+      </div>
+    </div>
+  </div>
+  </form>
+
+  
+
+

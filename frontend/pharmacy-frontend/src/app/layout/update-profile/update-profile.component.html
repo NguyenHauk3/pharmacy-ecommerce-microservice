@@ -1,0 +1,53 @@
+<app-header></app-header>
+<div *ngIf="showNotification" class="custom-toast">
+  ✅ Đã cập nhật thông tin!
+</div>
+<div class="update-form-container">
+  <h2>Cập nhật thông tin cá nhân</h2>
+
+  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label>Họ tên:</label>
+      <input formControlName="name" type="text" />
+    </div>
+
+    <div>
+      <label>Email:</label>
+      <input formControlName="email" type="email" />
+    </div>
+
+    <div>
+      <label>Số điện thoại:</label>
+      <input formControlName="phone" type="text" />
+    </div>
+
+    <div>
+      <label>Địa chỉ:</label>
+      <input formControlName="address" type="text" />
+    </div>
+
+    <div>
+      <label>Giới tính:</label>
+      <select formControlName="gender">
+        <option value="">-- Chọn --</option>
+        <option value="Nam">Nam</option>
+        <option value="Nữ">Nữ</option>
+        <option value="Khác">Khác</option>
+      </select>
+    </div>
+
+    <div *ngIf="isRoleEditable">
+      <label>Quyền:</label>
+      <input formControlName="role" type="text" />
+    </div>
+
+    <div>
+      <label>Mật khẩu mới:</label>
+      <input formControlName="password" type="password" />
+    </div>
+
+    <button type="submit">Cập nhật</button>
+
+    <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+  </form>
+</div>
